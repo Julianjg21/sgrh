@@ -1,13 +1,39 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body{
+    font-family: robot;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*login*/
+/*LoginButtons.js*/
+#btn-resetPassword{
+    position:relative;
+    top:28.5rem;
 }
+
+/*FormLogin*/
+#label-loginText{
+ font-size: 20px;
+}
+
+/*LoginLayour*/
+#div-footer{
+    font-weight: bold;
+}
+#footer-icons{
+    position: relative;
+    top:8px;
+    left:5px;
+}
+
+/*LoginReset*/
+
+#h1-resetPasswordForm{
+  font-size:24px;
+}
+
+#label-resetPasswordForm{
+    font-size:17px;
+    font-weight:normal;
+}
+
+
+/*END LOGIN FORM */
