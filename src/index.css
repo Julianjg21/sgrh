@@ -1,39 +1,49 @@
-body{
-    font-family: robot;
+body {
+  font-family: robot;
 }
 
 /*login*/
 /*LoginButtons.js*/
-#btn-resetPassword{
-    position:relative;
-    top:28.5rem;
+#btn-resetPassword {
+  position: relative;
+  top: 28.5rem;
 }
 
 /*FormLogin*/
-#label-loginText{
- font-size: 20px;
+#label-loginText {
+  font-size: 20px;
 }
 
 /*LoginLayour*/
-#div-footer{
-    font-weight: bold;
+#div-footer {
+  font-weight: bold;
 }
-#footer-icons{
-    position: relative;
-    top:8px;
-    left:5px;
+#footer-icons {
+  position: relative;
+  top: 8px;
+  left: 5px;
 }
 
 /*LoginReset*/
 
-#h1-resetPasswordForm{
-  font-size:24px;
+#h1-resetPasswordForm {
+  font-size: 24px;
 }
 
-#label-resetPasswordForm{
-    font-size:17px;
-    font-weight:normal;
+#label-resetPasswordForm {
+  font-size: 17px;
+  font-weight: normal;
 }
 
+@media (max-width: 768px) {
+  #col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 26px;
+  }
+  #window-reset {
+    width: 97%;
+  }
+}
 
 /*END LOGIN FORM */

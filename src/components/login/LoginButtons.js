@@ -6,12 +6,13 @@ class LogginButtons extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      activeWindow: false
+      activeWindow: false //Estado para activar la venta de restablecimiento de contraseña
     }
+    //Se enlaza "this"
     this.handleActiveWindow = this.handleActiveWindow.bind(this);
     this.handleDesactiveWindow = this.handleDesactiveWindow.bind(this);
   }
-   
+   //Activar o desactivar la ventana restablecimiento de contraseña
   handleActiveWindow() {
     this.setState({
       activeWindow:true

@@ -5,42 +5,44 @@ class ResetPassword extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      stage: 0,
+      stage: 0,  //Estado que controla el proceso de restablecimiento de contraseña
       email: "",
-      code: "",
+      code: "",  
       password: "",
     };
-
+   //Se enlaza "this"
     this.handleEmailSubmit = this.handleEmailSubmit.bind(this);
     this.handleCodeSubmit = this.handleCodeSubmit.bind(this);
     this.handlePasswordSubmit = this.handlePasswordSubmit.bind(this);
   }
   handleEmailSubmit(event) {
+    //Prevenir que se recargue la web
     event.preventDefault();
+    //Al enviarse el formulario se activa el siguiente proceso de restablecimiento de contraseña
     this.setState({
       stage: 1,
     });
   }
   handleCodeSubmit(event) {
+    //Prevenir que se recargue la web
     event.preventDefault();
-
+    //Al enviarse el formulario se activa el siguiente proceso de restablecimiento de contraseña
     this.setState({
       stage: 2,
     });
   }
   handlePasswordSubmit(event) {
     event.preventDefault();
-    alert("Contraseña actualizada exitosamente");
+    alert("Contraseña actualizada exitosamente"); //Se comprueba que este funcionando correctamente
   }
-
+//Comprueba y renderiza el proceso segun el estado
   renderContent() {
-    const { email, code, password } = this.state;
-
-    switch (this.state.stage) {
+    const { email, code, password } = this.state; 
+    switch (this.state.stage) { //Se comprueba que proceso renderizar
       case 0:
         return (
           <div
-            className="container position-fixed top-50 start-50 translate-middle w-50 h-75 bg-white d-flex flex-column justify-content-center align-items-center border rounded border-warning p-0"
+            className="container position-fixed top-50 start-50 translate-middle col-6 col-lg-6 h-75 bg-white d-flex flex-column justify-content-center align-items-center border rounded border-warning p-0"
             id="window-reset"
           >
             <div className="container-fluid p-0 position-absolute top-0 end-0">
@@ -89,7 +91,7 @@ class ResetPassword extends React.Component {
       case 1:
         return (
           <div
-            className="container position-fixed top-50 start-50 translate-middle w-50 h-75 bg-white  d-flex flex-column justify-content-center align-items-center border rounded  border-warning "
+            className="container position-fixed top-50 start-50 translate-middle col-6 col-lg-6 h-75 bg-white  d-flex flex-column justify-content-center align-items-center border rounded  border-warning "
             id="window-reset"
           >
             <div className="container-fluid p-0 position-absolute top-0 end-0">
@@ -141,7 +143,7 @@ class ResetPassword extends React.Component {
       case 2:
         return (
           <div
-            className="container position-fixed top-50 start-50 translate-middle w-50 h-75 bg-white  d-flex flex-column justify-content-center align-items-center border rounded  border-warning "
+            className="container position-fixed top-50 start-50 translate-middle col-6 col-lg-6 h-75 bg-white  d-flex flex-column justify-content-center align-items-center border rounded  border-warning "
             id="window-reset"
           >
             <div className="container-fluid p-0 position-absolute top-0 end-0">
@@ -210,7 +212,7 @@ class ResetPassword extends React.Component {
   }
 
   render() {
-    return <div>{this.renderContent()}</div>;
+    return <div>{this.renderContent()}</div>; //Se renderiza la funcion "renderContent"
   }
 }
 
