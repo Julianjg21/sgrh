@@ -7,7 +7,6 @@ class LoginPage extends React.Component {
   
     render(){
         return (
-          
           <div> <LoginLayout loginForm={LoginForm} /*Se pasa como prop el componente LoginForm*/ /></div>
         )
             

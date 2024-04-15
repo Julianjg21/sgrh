@@ -1,9 +1,9 @@
 import './App.css';
-import MainMenuLayout from './layouts/MainMenu/MainMenuLayout'
+import LoginPage from './pages/LoginPage';
 function App() {
   return (
     <div className="App">
-    <MainMenuLayout />
+    <LoginPage />
     </div>
   );
 }
