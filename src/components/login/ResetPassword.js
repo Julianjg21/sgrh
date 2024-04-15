@@ -115,7 +115,7 @@ class ResetPassword extends React.Component {
                   htmlFor="codeText"
                   className="text-center mb-2 "
                 >
-                  Porfavor ingrese el codigo de recurperacion enviado a{" "}
+                  Por favor ingrese el código de recuperación enviado a{" "}
                   <strong className="text-primary">
                     julianjimenez2001@hotmail.com
                   </strong>
@@ -124,7 +124,7 @@ class ResetPassword extends React.Component {
                   id="codeText"
                   className="w-75  mb-3 form-control"
                   type="text"
-                  placeholder="Ingrese el codigo recibido"
+                  placeholder="Ingrese el código recibido"
                   value={code}
                   onChange={(event) =>
                     this.setState({ code: event.target.value })
@@ -212,7 +212,7 @@ class ResetPassword extends React.Component {
   }
 
   render() {
-    return <div>{this.renderContent()}</div>; //Se renderiza la funcion "renderContent"
+    return <div>{this.renderContent()}</div>; //Se renderiza la función "renderContent"
   }
 }
 

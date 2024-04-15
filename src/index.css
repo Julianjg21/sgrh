@@ -47,3 +47,39 @@ body {
 }
 
 /*END LOGIN FORM */
+
+
+
+
+/*MAIN MENU*/
+
+/*Main menu layout*/
+
+#text-logo{
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+#textLogo-span{
+  margin-left: 20px;
+}
+
+/*Options Menu*/
+
+.btn-optionsMenu{
+  width:100%;
+  border-color: rgb(255, 192, 0);
+}
+.div-openOptions{
+  height:25px;
+}
+
+
+/*Module window*/
+
+.div-moduleWindow{
+  border:2px solid rgb(255, 192, 0);
+  border-radius: 8px;
+  
+}

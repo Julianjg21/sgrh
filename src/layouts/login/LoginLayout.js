@@ -1,6 +1,5 @@
 import React from "react";
-import LoginForms from "../../components/login/LoginForm";
-import logo_empresa from "./images/logo_empresa.png";
+import company_logo from "./images/company_logo.png";
 import {
   faCircleQuestion,
   faLocationDot,
@@ -16,14 +15,17 @@ class LoginLayout extends React.Component {
           <div className="col-12 bg-white">
             <img
               className="float-start img-fluid"
-              src={logo_empresa}
-              width="120px"
+              src={company_logo}
               alt="Logo de la empresa"
+              width="120px"
             />
           </div>
           <div className="col-12 p-0">
-            <LoginForms />
+         
+            <this.props.loginForm  /*Se renderiza el componente "LoginForm" recibido como prop*//> 
+
           </div>
+         
           <div className="col-12" id="div-footer">
             <div className="row">
               <div className="col-6">

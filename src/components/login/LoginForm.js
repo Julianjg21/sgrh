@@ -1,11 +1,11 @@
 import React from "react";
 import LogginButtons from "./LoginButtons";
 
-class LoginForms extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      typeUser: false, //Estado para activar o desactivar boton administrador o empleado
+      typeUser: false, //Estado para activar o desactivar botón administrador o empleado
       email: "",
       password: "",
     };
@@ -16,7 +16,7 @@ class LoginForms extends React.Component {
     this.handleStateTypeEmpleado = this.handleStateTypeEmpleado.bind(this);
     this.handleStateTypeAdmin = this.handleStateTypeAdmin.bind(this);
   }
-  //Se selecciona si  inicia sesion como admin o empleado
+  //Se selecciona si  inicia sesión como admin o empleado
   handleStateTypeEmpleado() {
     this.setState({
       typeUser: true,
@@ -29,7 +29,7 @@ class LoginForms extends React.Component {
     });
     console.log(this.state.typeUser);
   }
-  //envio de  contraseña y  usuario
+  //envió de  contraseña y  usuario
 
   handleEmailChange(event) {
     this.setState({
@@ -59,7 +59,7 @@ class LoginForms extends React.Component {
       : "Correo";
     const placeHolderTypeUser = this.state.typeUser
       ? "Ingrese su numero de documento de identificación"
-      : "Ingrese su correo electronico registrado";
+      : "Ingrese su correo electrónico registrado";
 
     return (
       <div className="container-fluid justify-content-center bg-black row">
@@ -68,14 +68,14 @@ class LoginForms extends React.Component {
           id="col-md-6"
         >
           <LogginButtons
-            //Envia funciones como props  al componente  "LogginButtons"
+            //Envía funciones como props  al componente  "LogginButtons"
             handleStateTypeEmpleado={this.handleStateTypeEmpleado}
             handleStateTypeAdmin={this.handleStateTypeAdmin}
-            //Envia el estado  como props al componente  "LogginButtons"
+            //Envía el estado  como props al componente  "LogginButtons"
             typeUser={this.state.typeUser}
           />
           <div className="container-fluid">
-            <h1 className="mb-5 mt-5">Iniciar Sesion</h1>
+            <h1 className="mb-5 mt-5">Iniciar Sesión</h1>
             <form onSubmit={this.handleSubmite}>
               <div className="form-group">
                 <label
@@ -125,4 +125,4 @@ class LoginForms extends React.Component {
   }
 }
 
-export default LoginForms;
+export default LoginForm;
