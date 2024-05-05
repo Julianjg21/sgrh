@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-//Se agregan y se estiliza el componente final del "Login"
+//The final "Login" component is added and styled
 class LoginLayout extends React.Component {
   render() {
     return (
@@ -21,18 +21,17 @@ class LoginLayout extends React.Component {
             />
           </div>
           <div className="col-12 p-0">
-         
-            <this.props.loginForm  /*Se renderiza el componente "LoginForm" recibido como prop*//> 
-
+            <this.props.loginForm /*The "LoginForm" component received as prop*is rendered*/
+            />
           </div>
-         
-          <div className="col-12" id="div-footer">
+
+          <div className="col-12 div-footer" id="div-footer">
             <div className="row">
               <div className="col-6">
                 <a href="nothing">Ayuda</a>
                 <FontAwesomeIcon
                   icon={faCircleQuestion}
-                  className="fa-2x"
+                  className="fa-2x footer-icons"
                   id="footer-icons"
                 />
               </div>
@@ -43,7 +42,7 @@ class LoginLayout extends React.Component {
                   Calle XXXXX{" "}
                   <FontAwesomeIcon
                     icon={faLocationDot}
-                    className="fa-2x"
+                    className="fa-2x footer-icons"
                     id="footer-icons"
                   />
                   <br /> N XXXXXX
