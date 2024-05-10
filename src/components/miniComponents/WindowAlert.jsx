@@ -25,12 +25,14 @@ class WindowAlert extends React.Component {
 
     return (
       <div
-        className={`container position-fixed top-50 start-50 translate-middle col-lg-3 h-25 bg-white d-flex flex-column justify-content-center align-items-center border rounded windowAler ${this.props.borderColor}  p-0`}
+        className={`container  position-fixed top-50   start-50  translate-middle col-lg-3 h-25 bg-white d-flex flex-column justify-content-center align-items-center border rounded windowAler ${this.props.borderColor}  p-0`}
       >
         <div className="mb-3 ">
           <p>
             {" "}
-            <strong>{this.props.infoText}</strong>{" "}
+            <strong className="error-message">
+              {this.props.infoText}
+            </strong>{" "}
           </p>
         </div>
         <div className=""></div>

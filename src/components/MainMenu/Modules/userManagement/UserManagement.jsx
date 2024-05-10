@@ -1,31 +1,97 @@
 import React from "react";
 import UserSearch from "../UserSearch";
+import WindowAlert from "../../../miniComponents/WindowAlert";
 
 class UserManagement extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonState: "true", //estado que activa su ventana respectiva
+      buttonState: true, //state that activates its respective window
+      windowAlert: false, //this state activate the alert window
+      userNames: "",
+      lastNames: "",
+      typeIdentification: "Cedula de Ciudadania",
+      identification: "",
+      phoneNumber: "",
+      birthdate: "",
+      email: "",
+      employeeRole: "",
+      bank: "",
+      accountNumber: "",
     };
-
-    this.handlebuttonState = this.handlebuttonState.bind(this); //se enlaza el this en la funcion
+    //bind this in the function
+    this.handlebuttonState = this.handlebuttonState.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  //funcion activa la ventana respectiva
+  //function activates the respective window
   handlebuttonState() {
     this.setState((prevState) => ({
       buttonState: !prevState.buttonState,
     }));
   }
 
+  //function that send the form information
+  handleSubmit(event) {
+    event.preventDefault(); //prevents page reloading
+
+    const data = {
+      userNames: this.state.userNames,
+      lastNames: this.state.lastNames,
+      typeIdentification: this.state.typeIdentification,
+      identification: this.state.identification,
+      phoneNumber: this.state.phoneNumber,
+      birthdate: this.state.birthdate,
+      email: this.state.email,
+      employeeRole: this.state.employeeRole,
+      bank: this.state.bank,
+      accountNumber: this.state.accountNumber,
+    };
+
+    fetch("http://localhost:3080/menu/createUsers", {
+      method: "Post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        if (data.message === "Successfully created user") {
+          this.setState({ windowAlert: true });
+        } else {
+          console.log("error,can't create user");
+        }
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  }
+
   renderContent() {
-    //renderiza el contenido segun el estado del state
+    //render the content according to the state
     if (this.state.buttonState) {
       return (
         <div className="container">
+          <div>
+            {this.state.windowAlert && (
+              <WindowAlert
+                buttonText="OK"
+                infoText="Usuario creado con exito!!"
+                borderColor="border-success"
+              />
+            )}
+          </div>
+
           <h1>Datos Personales</h1>
           <div className="container fluid p-0 mt-4">
-            <fom>
+            <form onSubmit={this.handleSubmit}>
               <div className="row justify-content-md-center">
                 <div className="col-4">
                   <div className="d-flex flex-column">
@@ -37,6 +103,10 @@ class UserManagement extends React.Component {
                       className="form-control border-dark mx-auto"
                       type="text"
                       placeholder="Nombres completos del usuario"
+                      onChange={(event) =>
+                        this.setState({ userNames: event.target.value })
+                      }
+                      value={this.state.userNames}
                     />
                   </div>
                 </div>
@@ -50,6 +120,10 @@ class UserManagement extends React.Component {
                       className=" form-control border-dark mx-auto"
                       type="text"
                       placeholder="Apellidos completos del usuario  "
+                      onChange={(event) =>
+                        this.setState({ lastNames: event.target.value })
+                      }
+                      value={this.state.lastNames}
                     />
                   </div>
                 </div>
@@ -64,6 +138,12 @@ class UserManagement extends React.Component {
                     <select
                       className="form-select border-dark"
                       id="identification"
+                      value={this.state.typeIdentification}
+                      onChange={(event) =>
+                        this.setState({
+                          typeIdentification: event.target.value,
+                        })
+                      }
                     >
                       <option value="Cedula de Ciudadania">
                         Cedula de Ciudadania
@@ -91,6 +171,10 @@ class UserManagement extends React.Component {
                       className=" form-control border-dark mx-auto"
                       type="text"
                       placeholder="Numero de identificación de el usuario"
+                      onChange={(event) =>
+                        this.setState({ identification: event.target.value })
+                      }
+                      value={this.state.identification}
                     />
                   </div>
                 </div>
@@ -107,6 +191,10 @@ class UserManagement extends React.Component {
                       className="form-control form-control mx-auto border-dark"
                       type="tel"
                       placeholder="Numero de telefono de el usuario"
+                      onChange={(event) =>
+                        this.setState({ phoneNumber: event.target.value })
+                      }
+                      value={this.state.phoneNumber}
                     />
                   </div>
                 </div>
@@ -119,12 +207,16 @@ class UserManagement extends React.Component {
                       id="fecha-nacimiento"
                       className=" form-control mx-auto border-dark"
                       type="date"
+                      onChange={(event) =>
+                        this.setState({ birthdate: event.target.value })
+                      }
+                      value={this.state.birthdate}
                     />
                   </div>
                 </div>
               </div>
 
-              <div class="row justify-content-md-center mt-4">
+              <div className="row justify-content-md-center mt-4">
                 <div className="col-4">
                   <div className=" flex-column">
                     <label htmlFor="correo">Correo Electronico </label>
@@ -132,6 +224,10 @@ class UserManagement extends React.Component {
                       id="correo"
                       className="text-center form-control mx-auto border-dark"
                       placeholder="Correo electronico de el usuario"
+                      onChange={(event) =>
+                        this.setState({ email: event.target.value })
+                      }
+                      value={this.state.email}
                     ></input>
                   </div>
                 </div>
@@ -149,6 +245,10 @@ class UserManagement extends React.Component {
                     <select
                       id="rol-empleado"
                       className="text-center form-select border-dark mx-auto"
+                      onChange={(event) =>
+                        this.setState({ employeeRole: event.target.value })
+                      }
+                      value={this.state.employeeRole}
                     >
                       <option>Bartender</option>
                       <option>Mesero</option>
@@ -172,6 +272,10 @@ class UserManagement extends React.Component {
                       className="form-control border-dark mx-auto"
                       type="text"
                       placeholder="Nombre del Banco"
+                      onChange={(event) =>
+                        this.setState({ bank: event.target.value })
+                      }
+                      value={this.state.bank}
                     />
                   </div>
                 </div>
@@ -185,6 +289,10 @@ class UserManagement extends React.Component {
                       className=" form-control mx-auto border-dark"
                       type="text"
                       placeholder="Numero de cuenta bancario  "
+                      onChange={(event) =>
+                        this.setState({ accountNumber: event.target.value })
+                      }
+                      value={this.state.accountNumber}
                     />
                   </div>
                 </div>
@@ -200,7 +308,7 @@ class UserManagement extends React.Component {
                   </button>
                 </div>
               </div>
-            </fom>
+            </form>
           </div>
         </div>
       );
@@ -215,7 +323,7 @@ class UserManagement extends React.Component {
 
   render() {
     return (
-      //Botones para activar la ventana  requerida
+      //Buttons to activate the required window
       <div className="container">
         <div className="row p-0 mb-3">
           <div className="col-6 p-0">

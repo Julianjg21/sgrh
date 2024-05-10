@@ -132,6 +132,7 @@ class LoginForm extends React.Component {
               buttonText="Aceptar"
               infoText="Error, Contraseña o usuario ingresados son incorrectos!!"
               borderColor="border-danger"
+             
             />
           )}
         </div>
@@ -186,6 +187,7 @@ class LoginForm extends React.Component {
               <button
                 className="mb-5 btn btn-light w-25 btn-outline-dark"
                 type="submit"
+                id="loginButton"
               >
                 Ingresar
               </button>
